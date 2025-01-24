@@ -23,9 +23,9 @@
                 id="role" 
                 name="role" 
                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                <option value="" disabled selected>--Selecciona una opción--</option>
-                <option value="1">Developer - Buscar ofertas</option>
-                <option value="2">Recruiter - Publicar ofertas</option>
+                <option value="" disabled selected>--Choose an option--</option>
+                <option value="1">Developer - Searching opportunities</option>
+                <option value="2">Recruiter - Create offers</option>
             </select>
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
