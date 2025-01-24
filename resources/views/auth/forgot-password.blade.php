@@ -15,11 +15,23 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        
+        <x-primary-button class="mt-4 w-full justify-center">
+            {{ __('Email Password Reset Link') }}
+        </x-primary-button>
+    
+        <div class=" flex flex-col text-center mt-10">
+            <x-link>
+                <a href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
+            </x-link>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+            <x-link>
+                <a href="{{ route('register') }}">
+                    {{ __('Create account') }}
+                </a>
+            </x-link>
         </div>
     </form>
 </x-guest-layout>
