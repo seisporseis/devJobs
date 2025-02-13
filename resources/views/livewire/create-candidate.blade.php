@@ -20,6 +20,10 @@
             name="salary" 
             class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             <option value="" disabled selected>--Choose an option--</option>
+            @foreach ($salaries as  $salary)
+                <option value="{{ $salary->id }}">{{ $salary->salary }}</option> 
+            @endforeach
+
         </select>
     </div>
 
@@ -31,6 +35,9 @@
             name="category" 
             class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             <option value="" disabled selected>--Choose an option--</option>
+            @foreach ($categories as $category )
+                <option value="{{ $category->id }}">{{ $category->category }}</option>
+            @endforeach
         </select>
     </div>
 
