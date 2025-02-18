@@ -5,7 +5,9 @@ namespace App\Livewire;
 use App\Models\Salary;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Candidate;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class CreateCandidate extends Component
 {
@@ -32,6 +34,28 @@ class CreateCandidate extends Component
     public function createOffer()
     {
         $data = $this->validate();
+
+        //Store image
+        $image = $this->image->store('public/candidates');
+        $data['image'] = str_replace('public/candidates', '', $image);
+
+        //Create candidate
+        Candidate::create([
+            'title' => $data['title'],
+            'salary_id' => $data['salary'],
+            'category_id' => $data['category'],
+            'company_name' => $data['company_name'],
+            'expiring_day' => $data['expiring_day'],
+            'description' => $data['description'],
+            'image' => $data['image'],
+            'user_id' => Auth::user()->id,
+        ]);
+
+        //Create message
+        session()->flash('message', 'Candidate created successfully!');
+
+        //Redirect user
+        return redirect()->route('candidates.index');
     }
 
     public function render()
