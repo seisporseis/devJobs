@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -42,10 +43,13 @@ class CandidateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Candidate $candidate)
     {
-        //
+       return view('candidates.edit', [
+        'candidate' => $candidate
+       ]);
     }
+   
 
     /**
      * Update the specified resource in storage.

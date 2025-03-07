@@ -11,11 +11,7 @@
                 <div class="border border-green-600 bg-green-100 text-green-600 font-bold p-2 my-3">{{ session('message') }}</div>
             @endif
 
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+            <livewire:show-candidates />
         </div>
     </div>
 </x-app-layout>

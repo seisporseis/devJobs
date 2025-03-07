@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [CandidateController::class, 'index'])->middleware(['auth', 'verified'])->name('candidates.index');
 Route::get('/candidates/create', [CandidateController::class, 'create'])->middleware(['auth', 'verified'])->name('candidates.create');
+Route::get('/candidates/{candidate}/edit', [CandidateController::class, 'edit'])->middleware(['auth', 'verified'])->name('candidates.edit');
 
 
 Route::middleware('auth')->group(function () {
