@@ -105,6 +105,10 @@
             wire:model="image"
             accept="image/*"
         />
+        <div class="my-5 w-80">
+            <x-input-label :value="__('Imagen')"/>
+            <img src="{{ asset('storage/candidates/' . $image) }}" alt="{{ 'Candidate image' . $title }}">
+        </div>
         {{-- <div class="my-5 w-80">
             @if ($image)
                 <img src="{{ $image->temporaryUrl() }}" alt="image" class="w-40 h-40 object-cover">
@@ -116,6 +120,6 @@
     </div>
 
     <x-primary-button class="w-full justify-center">
-        {{ __('Create new offer') }}
+        {{ __('Save changes') }}
     </x-primary-button>
 </form>
