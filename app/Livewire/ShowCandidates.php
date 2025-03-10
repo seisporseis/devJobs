@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ShowCandidates extends Component
 {
+    public function deleteCandidate(Candidate $candidate)
+    {
+        $candidate->delete();
+    }
     public function render()
     {
         $candidates = Candidate::where('user_id', Auth::user()->id)->paginate(10); 

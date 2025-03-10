@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CandidateController extends Controller
 {
@@ -25,19 +26,13 @@ class CandidateController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Candidate $candidate)
     {
-        //
+        return view('candidates.show', [
+            'candidate' => $candidate
+        ]);
     }
 
     /**
@@ -45,25 +40,12 @@ class CandidateController extends Controller
      */
     public function edit(Candidate $candidate)
     {
-       return view('candidates.edit', [
+        Gate::authorize('update', $candidate);
+        
+        return view('candidates.edit', [
         'candidate' => $candidate
-       ]);
+        ]);
     }
    
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
