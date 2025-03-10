@@ -1,4 +1,4 @@
-<form action="" class="w-full md:w-1/2 mx-auto space-y-5" wire:submit.prevent="createOffer">
+<form action="" class="w-full md:w-1/2 mx-auto space-y-5" wire:submit.prevent="editOffer">
     <div>
         <x-input-label for="title" :value="__('Offer title')"/>
 
@@ -75,7 +75,6 @@
             type="date"
             wire:model="expiring_day"
             :value="old('expiring_day')"
-            placeholder="Choose the last day to apply to this offer"
             />  
         @error('expiring_day')
             <livewire:show-alert :message="$message"/>
@@ -102,19 +101,19 @@
             id="image"
             class="block mt-1 w-full"
             type="file"
-            wire:model="image"
+            wire:model="new_image"
             accept="image/*"
         />
         <div class="my-5 w-80">
             <x-input-label :value="__('Imagen')"/>
-            <img src="{{ asset('storage/candidates/' . $image) }}" alt="{{ 'Candidate image' . $title }}">
+            <img src="{{ asset('storage/candidates' . $image) }}" alt="{{ 'Candidate image' . $title }}">
         </div>
-        {{-- <div class="my-5 w-80">
-            @if ($image)
-                <img src="{{ $image->temporaryUrl() }}" alt="image" class="w-40 h-40 object-cover">
+        <div class="my-5 w-80">
+            @if ($new_image)
+                <img src="{{ $new_image->temporaryUrl() }}">
             @endif
-        </div> --}}
-        @error('image')
+        </div>
+        @error('new_image')
            <livewire:show-alert :message="$message"/>
         @enderror
     </div>

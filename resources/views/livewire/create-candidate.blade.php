@@ -75,7 +75,6 @@
             type="date"
             wire:model="expiring_day"
             :value="old('expiring_day')"
-            placeholder="Choose the last day to apply to this offer"
             />  
         @error('expiring_day')
             <livewire:show-alert :message="$message"/>
