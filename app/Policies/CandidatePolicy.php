@@ -13,7 +13,7 @@ class CandidatePolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+       return $user->role === 2;
     }
 
     /**
@@ -29,7 +29,7 @@ class CandidatePolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->role === 2;
     }
 
     /**

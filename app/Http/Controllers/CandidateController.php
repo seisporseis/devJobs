@@ -13,6 +13,7 @@ class CandidateController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Candidate::class);
         return view('candidates.index');
     }
 
@@ -21,6 +22,7 @@ class CandidateController extends Controller
      */
     public function create()
     {
+        Gate::authorize('create', Candidate::class);
         return view('candidates.create');
 
     }
