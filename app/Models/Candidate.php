@@ -33,4 +33,14 @@ class Candidate extends Model
     {
         return $this->belongsTo(Salary::class);
     }
+
+    public function applies()
+    {
+        return $this->hasMany(Apply::class);
+    }
+
+    public function recruiter()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

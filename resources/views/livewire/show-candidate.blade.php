@@ -49,4 +49,8 @@
             </p>
         </div>
     @endguest
+
+    @cannot('create', App\Models\Candidate::class)
+        <livewire:apply-vacancy :candidate="$candidate" />
+    @endcannot
 </div>
